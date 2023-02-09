@@ -1,0 +1,6 @@
+docker exec -it gitlab bash //进入容器
+docker build -t nginx-test .  //制作镜像
+docker run --name nginx-docker -p 8088:8088 -d nginx-test //部署
+
+
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce
